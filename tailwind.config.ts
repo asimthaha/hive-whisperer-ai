@@ -52,6 +52,27 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Custom Beekeeping Theme Colors
+				honey: {
+					light: 'hsl(var(--honey-light))',
+					DEFAULT: 'hsl(var(--honey))',
+					dark: 'hsl(var(--honey-dark))'
+				},
+				amber: {
+					DEFAULT: 'hsl(var(--amber))',
+					dark: 'hsl(var(--amber-dark))'
+				},
+				sage: {
+					DEFAULT: 'hsl(var(--sage))',
+					dark: 'hsl(var(--sage-dark))'
+				},
+				sky: {
+					DEFAULT: 'hsl(var(--sky))',
+					dark: 'hsl(var(--sky-dark))'
+				},
+				cream: 'hsl(var(--cream))',
+				'warm-gray': 'hsl(var(--warm-gray))',
+				'dark-brown': 'hsl(var(--dark-brown))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
