@@ -5,6 +5,7 @@
 ### Tables to Create/Modify
 
 #### AI Diagnostics
+
 ```sql
 -- Hive analysis table for storing AI diagnostic results
 CREATE TABLE hive_analyses (
@@ -30,6 +31,7 @@ ALTER TABLE hives ADD COLUMN IF NOT EXISTS last_analysis_id UUID REFERENCES hive
 ```
 
 #### E-commerce Schema
+
 ```sql
 -- Products table
 CREATE TABLE products (
@@ -168,7 +170,9 @@ CREATE TABLE seller_profiles (
 ## Edge Functions to Implement
 
 ### AI Diagnostics Functions
+
 1. **analyze-hive-image**
+
    - Accept image upload
    - Process with AI model (external API or hosted model)
    - Store results in hive_analyses table
@@ -179,17 +183,21 @@ CREATE TABLE seller_profiles (
    - Estimated completion time
 
 ### E-commerce Functions
+
 1. **create-checkout-session**
+
    - Calculate totals including commission
    - Create Stripe checkout session
    - Handle multi-seller orders
 
 2. **process-webhook**
+
    - Handle Stripe webhooks
    - Update order status
    - Trigger payout calculations
 
 3. **calculate-payouts**
+
    - Calculate seller payouts minus commission
    - Schedule payouts via Stripe Connect
 
@@ -198,7 +206,9 @@ CREATE TABLE seller_profiles (
    - Handle inventory alerts
 
 ### File Storage
+
 1. **upload-product-images**
+
    - Handle product image uploads
    - Image optimization and resizing
    - Store in Supabase Storage
@@ -208,6 +218,7 @@ CREATE TABLE seller_profiles (
    - Store securely with proper access controls
 
 ## Real-time Features
+
 - Set up Supabase real-time subscriptions for:
   - Analysis progress updates
   - Order status changes
@@ -215,6 +226,7 @@ CREATE TABLE seller_profiles (
   - New reviews notifications
 
 ## Security & Performance
+
 - Implement RLS policies for all tables
 - Set up proper indexes for search performance
 - Implement rate limiting on analysis endpoints
@@ -222,19 +234,69 @@ CREATE TABLE seller_profiles (
 - Set up automated backups
 
 ## Payment Integration
+
 - Stripe Connect for multi-seller payouts
 - Webhook handling for order updates
 - Commission calculation and automatic deduction
 - PCI compliance measures
 
 ## Search & SEO
+
 - Implement full-text search across products
 - Add structured data markup
 - Generate XML sitemaps
 - Implement product schema markup for rich snippets
 
 ## Analytics & Reporting
+
 - Track seller performance metrics
 - Product view/conversion analytics
 - Revenue reporting with commission breakdown
 - Inventory turnover analytics
+
+# Backend Features to Implement Later
+
+## Authentication & User Management
+
+- [ ] Supabase Auth integration for user registration/login
+- [ ] Role-based access control (beekeepers, future buyer roles)
+- [ ] User profile management
+- [ ] Secure session handling
+
+## Database Schema & Data Management
+
+- [ ] User profiles table
+- [ ] Hives table with owner relationships
+- [ ] Inspection logs table with complete history tracking
+- [ ] Weather data caching table
+- [ ] Future marketplace tables (users, products, transactions)
+
+## API Integrations
+
+- [ ] Weather API integration (real-time + multi-day forecasts)
+- [ ] AI logic for weather-to-recommendation translation
+- [ ] Rate limiting and request optimization for API costs
+- [ ] Robust error handling for network failures
+
+## Core Backend Logic
+
+- [ ] Hive management CRUD operations
+- [ ] Inspection log creation and retrieval
+- [ ] Weather data fetching and processing
+- [ ] AI recommendation engine
+- [ ] Historical data analysis
+
+## Offline & Performance Features
+
+- [ ] Data caching for offline functionality
+- [ ] Essential data storage (last forecast, hive details)
+- [ ] Optimized data sync when connection resumes
+- [ ] Performance monitoring and optimization
+
+## Future Scalability Features
+
+- [ ] Marketplace backend infrastructure
+- [ ] Community features database design
+- [ ] Advanced analytics and reporting
+- [ ] Notification system
+- [ ] File upload for hive photos/documents
