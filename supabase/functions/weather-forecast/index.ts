@@ -69,13 +69,13 @@ serve(async (req) => {
 
     // Fetch current weather
     const currentWeatherResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric`
     );
     const currentWeather = await currentWeatherResponse.json();
 
     // Fetch hourly forecast
     const forecastResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric`
     );
     const forecast = await forecastResponse.json();
 
@@ -124,7 +124,7 @@ serve(async (req) => {
         weather_data: weatherData,
         forecast_data: forecast,
         cached_at: new Date().toISOString(),
-        expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString() // 1 hour
+        expires_at: new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString() // 2 hours
       });
 
     console.log('Weather data fetched and cached successfully');
